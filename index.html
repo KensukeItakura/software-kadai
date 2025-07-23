@@ -134,7 +134,7 @@
         const CLASS_DURATION_MINUTES = 90; const ACTIVITIES = { breakfast: '朝食', dinner: '夕食', bath: '入浴', parttime: 'バイト' };
         
         const callAI = async (endpoint, payload, button) => {
-            const YOUR_NGROK_URL_HERE = "https://09c2baa1a82a.ngrok-free.app"; // ★★★ ここにあなたのngrok URLを貼り付け！ ★★★
+            const YOUR_NGROK_URL_HERE = "https://xxxxxxxx.ngrok-free.app"; // ★★★ ここにあなたのngrok URLを貼り付け！ ★★★
             const COLAB_SERVER_URL = `${YOUR_NGROK_URL_HERE}${endpoint}`;
             if (button) { button.textContent = 'AI考え中...'; button.disabled = true; }
             try {
@@ -230,7 +230,9 @@
         saveBtn.addEventListener('click', saveData);
         resetBtn.addEventListener('click', resetData);
         mainNav.addEventListener('click', (e) => { if (e.target.classList.contains('nav-tab')) { const targetTab = e.target.dataset.tab; mainNav.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active')); e.target.classList.add('active'); contentSections.forEach(section => { if (section.id === `${targetTab}-section`) { section.classList.add('active'); } else { section.classList.remove('active'); } }); } });
+        
         timetableBody.addEventListener('click', e => { if (e.target.classList.contains('details-btn')) openSyllabusModal(e.target.closest('td').id); });
+        
         syllabusModal.querySelector('.modal-body').addEventListener('input', checkSyllabusModalChanges);
         document.getElementById('course-select').addEventListener('change', (e) => { const selectedIndex = e.target.value; if (selectedIndex !== "") { const course = courseMaster[selectedIndex]; document.getElementById('modal-course-name').value = course.name; document.getElementById('modal-professor').value = course.professor || ''; checkSyllabusModalChanges(); } });
         addAssignmentBtn.addEventListener('click', addAssignment);
